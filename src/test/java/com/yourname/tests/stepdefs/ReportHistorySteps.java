@@ -48,8 +48,12 @@ public class ReportHistorySteps extends BaseTest {
         assert reportHistoryPage.isReportTableVisible();
     }
 
-    @Then("I click on the search box and enter PAN {string}")
+    @Then("I search using the PAN {string}")
     public void i_search_using_pan(String pan) {
         reportHistoryPage.searchByPAN(pan);
+    }
+    @Then("I print the searched pan table to verify the search box functionality")
+    public void print_table(){
+        reportHistoryPage.printSearchedPanTableData();
     }
 }

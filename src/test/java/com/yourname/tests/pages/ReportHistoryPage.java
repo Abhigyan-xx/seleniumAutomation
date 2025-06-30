@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.util.*;
+
 public class ReportHistoryPage {
     private WebDriver driver;
     private WebDriverWait wait;
@@ -32,9 +34,29 @@ public class ReportHistoryPage {
         WebElement searchBox = wait.until(ExpectedConditions.elementToBeClickable(
                 By.xpath("//input[@placeholder='Search By User name, Contact number or PAN number.']")));
         searchBox.click();
+        searchBox.clear();
         searchBox.sendKeys(pan);
+
         WebElement searchIcon = wait.until(ExpectedConditions.elementToBeClickable(
-                By.xpath("//*[@id=\"root\"]/div[1]/div/div[2]/div[2]/div[1]/button")));
+                By.xpath("//button[contains(@class, 'MuiIconButton-root')]")));
         searchIcon.click();
     }
+
+    public void printSearchedPanTableData() {
+        WebElement table = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//div[@class='MuiTableContainer-root css-1exj0wg']"))); // Update this XPath based on actual HTML
+
+        List<WebElement> rows = table.findElements(By.xpath(".//table/tbody/tr"));
+
+        System.out.println("======= Searched PAN Table Data =======");
+
+        for (WebElement row : rows) {
+            List<WebElement> cells = row.findElements(By.tagName("td"));
+            for (WebElement cell : cells) {
+                System.out.print(cell.getText() + " | ");
+            }
+            System.out.println();
+        }
+    }
+
 }

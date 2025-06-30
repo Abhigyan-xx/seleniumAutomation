@@ -32,7 +32,5 @@ public class LoginPage {
         driver.findElement(By.id("kc-login")).click();
         WebElement dashboardButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"root\"]/div[1]/div/div/div")));
         dashboardButton.click();
-        System.out.println(dashboardButton);
-
-    }
+     }
 }

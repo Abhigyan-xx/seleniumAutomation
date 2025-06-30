@@ -10,10 +10,13 @@ Feature: GST Report PDF Search
     And I log in using valid admin credentials "<userName>" and "<passWord>"
     When I navigate to the "Report History" tab
     Then I should see the list of all GST reports generated for all users
-#    Then I click on the search box
-#    Then I enter the pan number to search the history report
-#    Then I click on the search Icon to search the pan
+    When I search using the PAN "ABKCS8597E"
+
+
 
     Examples:
-      | userName                          | passWord     |
-      | abhigyan.shukla@finconic.com     | delhi@12345  |
+      | userName                     | passWord    |
+      | abhigyan.shukla@finconic.com | delhi@12345 |
+      | pan                          | AAACM6094R  |
+
+
