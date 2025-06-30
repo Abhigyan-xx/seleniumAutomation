@@ -26,10 +26,6 @@ public class LoginPage {
                 By.xpath("//p[@class='homepage-login-button-text']")));
         loginButton.click();
 
-//        WebElement loginButton = wait.until(ExpectedConditions.elementToBeClickable(
-//                By.xpath("//p[@class='homepage-login-button-text']")));
-//        loginButton.click();
-//
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("username")))
                 .sendKeys(config.getProperty("userName"));
         driver.findElement(By.id("password")).sendKeys(config.getProperty("passWord"));
