@@ -26,6 +26,10 @@ public class LoginPage {
                 By.xpath("//p[@class='homepage-login-button-text']")));
         loginButton.click();
 
+//        WebElement loginButton = wait.until(ExpectedConditions.elementToBeClickable(
+//                By.xpath("//p[@class='homepage-login-button-text']")));
+//        loginButton.click();
+//
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("username")))
                 .sendKeys(config.getProperty("userName"));
         driver.findElement(By.id("password")).sendKeys(config.getProperty("passWord"));
@@ -33,5 +37,6 @@ public class LoginPage {
         WebElement dashboardButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"root\"]/div[1]/div/div/div")));
         dashboardButton.click();
         System.out.println(dashboardButton);
+
     }
 }
